@@ -1,0 +1,38 @@
+﻿@model AppWeb.Models.ContactType
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Detalle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ContactTypeID }, new { @class = "btn btn-warning" })
+
+    @Html.ActionLink("Volver", "Index", new { area = "" }, new { @class = "btn btn-info" })
+
+
+</p>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AppWeb.Models.ContactType>
+
+@{
+    ViewBag.Title = "Tipo de contacto";
+}
+
+<h2>Tipo De Contacto</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.ContactTypeID },htmlAttributes: new { @class = "glyphicon glyphicon-edit mediun-font icon-size blue ", @title = "Editar" }) 
+                    @Html.ActionLink(" ", "Details", new { id = item.ContactTypeID },htmlAttributes: new { @class = "glyphicon glyphicon-list mediun-font icon-size yellow ", @title = "Detalle" }) 
+                    @Html.ActionLink(" ", "Delete", new { id = item.ContactTypeID },htmlAttributes: new { @class = "glyphicon glyphicon-trash mediun-font icon-size red ", @title = "Eliminar" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/Views/Config/datable.customizer.js"></script>
+}
+
+

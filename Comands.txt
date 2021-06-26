@@ -1,0 +1,41 @@
+
+-Antes de instalar modificar un controlador para hacer cambios
+ver sus dependencias y como se relacionan
+-Se crea la app asp net con mvc
+-Se añade Ado net y se agregar la base de datos y sus tablas a usar
+-Se agrega en el layout las pestañas y sus iconos
+-Se añaden los links de datatables en el layout y agregar Tbody y thead para que funcione
+-Agregar Datanotacion con un modelo aparte para no afectar
+
+
+-Para el login se hace primero la app y se configura el web.config con la base de datos
+para crear las tablas del login
+
+
+-para ir haciendo el login nos ubicamos en identity.config
+
+ var hasher = new PasswordHasher();
+            var firstUser = new ApplicationUser 
+            {
+                Id = Guid.NewGuid().ToString(),
+                Email = "Kleosling@gmail.com",
+                UserName = "Alejandro Morales",
+                PasswordHash = hasher.HashPassword("Alejo22510891."),
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            manager.Store.CreateAsync(firstUser);
+
+--Ahora se modifica el modelo de accountViewModel
+ [Display(Name = "Usuario")]
+        [Required]
+        public string UserName { get; set; }
+
+
+--Luego se va a vista y se cambia la variable de email por username
+
+
+--configura el controlador accountController y cambiar el email por username
+
+--se modifica el los route.config para iniciar el login primero
+
+--para prohibir el acceso a las seccion del sitio se utiliza [Authorize] al inicio de los controladores

@@ -1,0 +1,56 @@
+﻿@model AppWeb.Models.ContactType
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@if (ViewBag.CanDeleteItem)
+{
+
+    <h3>Estas seguro de eliminar este elemento?</h3>
+
+}
+else
+{
+    <h3>Este elemento no se puede borrar</h3>
+
+}
+<div>
+    <h4>Tipo de contacto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    @if (ViewBag.CanDeleteItem)
+    {
+
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+
+    }
+    @Html.ActionLink("Volver", "Index", new { area = "" }, new { @class = "btn btn-info" })
+
+
+</div>
+    }
+</div>
